@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+               <div class="alert alert-{{ category }}">
+                 {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+{% block chats %}
+<body class="container">
+        {# Roster Rows #}
+       <div class="row">
+           <div class="d-grid gap-2 d-md-flex justify-content-center mb-4 mb-lg-3" id="rosterPlayers">
+
+               {% for player in roster['PLAYER'].values() %}
+
+{#               <div id="player0">#}
+{#                    <a className="" href="/"><img src="/static/images/team_logos/ATL.png" style=""></a>#}
+{#               </div>#}
+
+               <div id={{player}}>
+                    <a className="" href="/"><img src="/static/images/team_logos/ATL.png" style=""></a>
+               </div>
+
+               {% endfor %}
+
+           </div>
+       </div>
+        {# Loading Row #}
+        <div class="row hidden" id="loadingRows">
+            <img class="d-block mx-lg-auto img-fluid" src="/static/images/loading_gif.gif" alt="Loading" width="100">
+       </div>
+</body>      
+{% endblock chats %}

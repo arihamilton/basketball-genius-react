@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+               <div class="alert alert-{{ category }}">
+                 {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+{% block chats %}
+<body class="container">
+       <div class="row">
+           <div>
+               <img class="d-block mx-lg-auto img-fluid imgDropShadow" src="/static/images/basketballgenius_logo.png" alt="BasketballGenius Logo" width="720">
+           </div>
+       </div>
+       <div class="row">
+           <div class="d-grid gap-2 d-md-flex justify-content-center mb-4 mb-lg-3">
+                       <a href="/teams"><button type="button" class="btn btn-primary btn-lg">Search for a Team</button></a>
+                       <a href="/login"><button type="button" class="btn btn-primary btn-lg ml-2">Search for a Player</button></a>
+           </div>
+       </div>
+</body>      
+{% endblock chats %}

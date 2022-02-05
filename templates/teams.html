@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            {% for category, message in messages %}
+               <div class="alert alert-{{ category }}">
+                 {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        {% endwith %}
+{% block chats %}
+<body class="container">
+        {# Team Row #}
+       <div class="row" id="teamRows">
+           <div class="d-grid gap-2 d-md-flex justify-content-center mb-4 mb-lg-3" id="easternRows">
+               <form>
+                <a href=# id=test class="teamButton"><button class='btn btn-default'>Test</button></a>
+               </form>
+           </div>
+       </div>
+        {# Loading Row #}
+        <div class="row hidden" id="loadingRows">
+            <img class="d-block mx-lg-auto img-fluid" src="/static/images/loading_gif.gif" alt="Loading" width="100">
+       </div>
+</body>      
+{% endblock chats %}
